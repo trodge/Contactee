@@ -6,7 +6,7 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-const db = mongojs('contactee', ['messages']);
+const db = mongojs(process.env.MONGODB_URI, ['messages']);
 
 app.post('/message', (req, res) => {
     db.messages.insert(req.body, () => res.sendStatus(200));
