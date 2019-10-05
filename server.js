@@ -20,12 +20,6 @@ app.get('/', (req, res) => {
     })
 });
 
-app.delete('/', (req, res) => {
-    db.mesages.delete().then(() => {
-        res.sendStatus('200');
-    });
-})
-
 app.listen(process.env.PORT || 8080);
 
 function allow(req, res, next) {
